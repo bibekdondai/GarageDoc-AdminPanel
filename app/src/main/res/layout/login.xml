@@ -1,0 +1,138 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent" android:layout_height="wrap_content" >
+
+
+	<ScrollView android:id="@+id/login" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+			<View   android:id="@+id/line_10"
+				android:background="@drawable/line_10_shape"
+				 android:layout_marginStart="-220dp"
+				android:layout_marginTop="-185dp"
+				android:layout_width="363dp"
+				android:layout_height="1dp" />
+
+
+
+			<RelativeLayout android:id="@+id/page_login_ek1"
+				android:background="@drawable/_bg__login_ek2_shape"
+				android:layout_marginTop="0dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+
+				<RelativeLayout android:id="@+id/slash_page"
+					android:layout_marginTop="0dp"
+					android:layout_marginStart="0dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+
+					>
+
+					<ImageView android:id="@+id/ellipse_1"
+						android:src="@drawable/ellipse_1"
+						android:contentDescription="ellipse_1"
+						 android:layout_marginStart="-73dp"
+						android:layout_marginTop="-80dp"
+						android:layout_width="505dp"
+						android:layout_height="475dp" />
+
+					<TextView
+						android:id="@+id/garage_doc_ek1"
+						android:layout_width="315dp"
+						android:layout_height="87.5dp"
+						android:layout_marginStart="20dp"
+						android:layout_marginTop="280dp"
+
+						android:text="@string/garage_doc_ek1_string"
+						android:textColor="@color/_bg__login_ek2_color"
+						android:textSize="49sp" />
+
+					<ImageView android:id="@+id/black_and_white_modern_typographic_simple_virus_apparel_logo__1__1"
+						android:src="@drawable/black_and_white_modern_typographic_simple_virus_apparel_logo__1__1"
+						android:contentDescription="black_and_white_modern_typographic_simple_virus_apparel_logo__1__1"
+						 android:layout_marginStart="57dp"
+						android:layout_marginTop="19dp"
+						android:layout_width="245dp"
+						android:layout_height="251dp" />
+
+					<View   android:id="@+id/rectangle_1_ek1"
+						android:background="@drawable/rectangle_1_ek1_shape"
+						 android:layout_marginStart="23dp"
+						android:layout_marginTop="455dp"
+						android:layout_width="319dp"
+						android:layout_height="48dp" />
+
+					<TextView android:id="@+id/username"
+
+						android:textSize="22sp"
+						android:textColor="@color/_logout_color"
+						android:layout_marginStart="61dp"
+						android:layout_marginTop="463dp"
+						android:layout_width="142dp"
+						android:layout_height="48dp"
+						android:text="@string/username_string"
+						 />
+
+					<View   android:id="@+id/rectangle_2"
+						android:background="@drawable/rectangle_2_shape"
+						 android:layout_marginStart="23dp"
+						android:layout_marginTop="528dp"
+						android:layout_width="319dp"
+						android:layout_height="49dp" />
+
+					<TextView android:id="@+id/password"
+
+						android:textSize="22sp"
+						android:textColor="@color/_logout_color"
+						android:layout_marginStart="61dp"
+						android:layout_marginTop="536dp"
+						android:layout_width="135dp"
+						android:layout_height="48dp"
+						android:text="@string/password_string"
+						 />
+
+				</RelativeLayout>
+
+				<View   android:id="@+id/rectangle_2_ek1"
+					android:background="@drawable/rectangle_2_ek1_shape"
+					 android:layout_marginStart="61dp"
+					android:layout_marginTop="699dp"
+					android:layout_width="217dp"
+					android:layout_height="51dp" />
+
+				<TextView android:id="@+id/submit"
+
+					android:textSize="20sp"
+					android:textColor="@color/_logout_color"
+					android:layout_marginStart="134dp"
+					android:layout_marginTop="710dp"
+					android:layout_width="98dp"
+					android:layout_height="44dp"
+					android:text="@string/submit_string"
+					android:clickable="true"
+					android:focusable="true"
+					 />
+
+			</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+		</RelativeLayout>
+
+	</ScrollView>
+</HorizontalScrollView>
