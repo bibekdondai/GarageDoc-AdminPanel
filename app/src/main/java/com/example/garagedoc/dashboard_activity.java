@@ -1,155 +1,119 @@
-
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		dashboard
-	 *	@date 		Wednesday 05th of June 2024 09:02:46 PM
-	 *	@title 		Admin Panel
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
-
-	package com.example.garagedoc;
+package com.example.garagedoc;
 
 import android.app.Activity;
 import android.os.Bundle;
-
-
 import android.view.View;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.content.Intent;
 import android.widget.ImageView;
 
-public class dashboard_activity extends Activity {
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+public class dashboard_activity extends Activity {
 
 	private View rectangle_1;
 	private TextView _logout;
 	private TextView garage_doc;
-	private View rectangle_3;
-	private TextView add_vehicles;
-	private TextView s_n;
-	private TextView token_time;
-	private TextView bike_no;
-	private TextView details;
-	private TextView s_n_ek1;
-	private TextView token_time_ek1;
-	private TextView status;
-	private ImageView vector;
-	private TextView home;
-	private TextView notification;
-	private TextView call;
-	private TextView setting;
-	private ImageView vector_ek1;
-	private ImageView vector_ek20;
-	private ImageView vector_ek3;
-	private ImageView vector_ek4;
-	private ImageView _vector_ek5;
+	private ImageView vector_ek1, vector_ek4, vector_ek20;
+	private TableLayout upperTable, lowerTable;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dashboard);
 
-
-
-		rectangle_1 = (View) findViewById(R.id.rectangle_1);
-		_logout = (TextView) findViewById(R.id._logout);
-		garage_doc = (TextView) findViewById(R.id.garage_doc);
-
-		s_n = (TextView) findViewById(R.id.s_n);
-		token_time = (TextView) findViewById(R.id.token_time);
-		bike_no = (TextView) findViewById(R.id.bike_no);
-		details = (TextView) findViewById(R.id.details);
-		s_n_ek1 = (TextView) findViewById(R.id.s_n_ek1);
-		token_time_ek1 = (TextView) findViewById(R.id.token_time_ek1);
-		status = (TextView) findViewById(R.id.status);
-		_logout= (TextView) findViewById(R.id._logout);
-
-
-		vector_ek1 = (ImageView) findViewById(R.id.vector_ek1);
-
-		vector_ek4 = (ImageView) findViewById(R.id.vector_ek4);
-		vector_ek20 = (ImageView) findViewById(R.id.vector_ek20);
-
+		rectangle_1 = findViewById(R.id.rectangle_1);
+		_logout = findViewById(R.id._logout);
+		garage_doc = findViewById(R.id.garage_doc);
+		vector_ek1 = findViewById(R.id.vector_ek1);
+		vector_ek4 = findViewById(R.id.vector_ek4);
+		vector_ek20 = findViewById(R.id.vector_ek20);
+		upperTable = findViewById(R.id.upper_table);
+		lowerTable = findViewById(R.id.lower_table);
 
 		// Set click listeners
-		if (home != null) {
-			home.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					// Handle click event for home
-					Intent homeIntent = new Intent(dashboard_activity.this, login_activity.class);
-					startActivity(homeIntent);
+		vector_ek4.setOnClickListener(v -> {
+			Intent settingIntent = new Intent(dashboard_activity.this, setting_activity.class);
+			startActivity(settingIntent);
+		});
+
+		vector_ek20.setOnClickListener(v -> {
+			Intent notificationIntent = new Intent(dashboard_activity.this, notification_activity.class);
+			startActivity(notificationIntent);
+		});
+
+		vector_ek1.setOnClickListener(v -> {
+			Intent dashboardIntent = new Intent(dashboard_activity.this, dashboard_activity.class);
+			startActivity(dashboardIntent);
+		});
+
+		_logout.setOnClickListener(v -> {
+			Intent logoutIntent = new Intent(dashboard_activity.this, login_activity.class);
+			startActivity(logoutIntent);
+		});
+
+		// Fetch and display data from Firebase
+		fetchAndDisplayData();
+	}
+
+	private void fetchAndDisplayData() {
+		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("your_database_path");
+
+		databaseReference.addValueEventListener(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				int sn = 1;
+				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+					String tokenTime = snapshot.child("token_time").getValue(String.class);
+					String bikeNo = snapshot.child("bike_no").getValue(String.class);
+					String remarks = snapshot.child("remarks").getValue(String.class);
+					String status = snapshot.child("status").getValue(String.class);
+
+					addUpperTableRow(sn, tokenTime, bikeNo, remarks);
+					addLowerTableRow(sn, tokenTime, status);
+
+					sn++;
 				}
-			});
-		}
+			}
 
-
-
-
-
-		if (setting != null) {
-			setting.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					// Handle click event for setting
-					// Add your code here
-				}
-			});
-		}
-		vector_ek4.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				// Open the setting activity
-				Intent settingIntent = new Intent(dashboard_activity.this, setting_activity.class);
-				startActivity(settingIntent);
+			public void onCancelled(DatabaseError databaseError) {
+				// Handle possible errors.
 			}
 		});
+	}
 
-		vector_ek20.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// Open the notification activity
-				Intent notificationIntent = new Intent(dashboard_activity.this, notification_activity.class);
-				startActivity(notificationIntent);
-			}
-		});
-		vector_ek1.setOnClickListener(new View.OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				// Open the notification activity
-				Intent notificationIntent = new Intent(dashboard_activity.this, dashboard_activity.class);
-				startActivity(notificationIntent);
+	private void addUpperTableRow(int sn, String tokenTime, String bikeNo, String remarks) {
+		TableRow row = new TableRow(this);
+		row.addView(createTextView(String.valueOf(sn)));
+		row.addView(createTextView(tokenTime));
+		row.addView(createTextView(bikeNo));
+		row.addView(createTextView(remarks));
+		upperTable.addView(row);
+	}
 
-			}
-		});
-		_logout.setOnClickListener(new View.OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				// Open the notification activity
-				Intent notificationIntent = new Intent(dashboard_activity.this, login_activity.class);
-				startActivity(notificationIntent);
+	private void addLowerTableRow(int sn, String tokenTime, String status) {
+		TableRow row = new TableRow(this);
+		row.addView(createTextView(String.valueOf(sn)));
+		row.addView(createTextView(tokenTime));
+		row.addView(createTextView(status));
+		lowerTable.addView(row);
+	}
 
-			}
-		});
-
-
-
-
-
-		// Add any additional code specific to your activity here
+	private TextView createTextView(String text) {
+		TextView textView = new TextView(this);
+		textView.setText(text);
+		textView.setPadding(8, 8, 8, 8);
+		return textView;
+	}
+	public void openDetailsPage(View view) {
+		Intent intent = new Intent(this, details_to_be_filled_activity.class);
+		startActivity(intent);
 	}
 }
-
-
-
-	
-	

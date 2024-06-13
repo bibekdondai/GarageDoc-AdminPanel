@@ -1,38 +1,18 @@
-
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		dashboard
-	 *	@date 		Wednesday 05th of June 2024 09:02:46 PM
-	 *	@title 		Admin Panel
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
-
-	package com.example.garagedoc;
+package com.example.garagedoc;
 
 import android.app.Activity;
 import android.os.Bundle;
-
-
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class details_to_be_filled_activity extends Activity {
 
-	
 	private View _bg__details_to_be_filled_ek2;
-	private View signal_ek1;
 	private TextView ca_ek2;
 	private TextView vehicle_details_;
-	private View line_19;
 	private TextView vehicle_number_;
 	private TextView text;
 	private TextView text_ek1;
@@ -65,7 +45,7 @@ public class details_to_be_filled_activity extends Activity {
 	private View rectangle_81;
 	private View rectangle_82;
 	private TextView cancelled_ek1;
-	private TextView pending_ek1;
+	private TextView pending_ek1; // Declaration corrected
 	private TextView process_ek1;
 	private TextView delivered_ek1;
 	private TextView changes_to_be_made_from_showroom_side;
@@ -86,68 +66,34 @@ public class details_to_be_filled_activity extends Activity {
 	private TextView add_part_name___services;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.details_to_be_filled);
 
-		
-		_bg__details_to_be_filled_ek2 = (View) findViewById(R.id._bg__details_to_be_filled_ek2);
+		// Initialize your views
+		_bg__details_to_be_filled_ek2 = findViewById(R.id._bg__details_to_be_filled_ek2);
 
-		ca_ek2 = (TextView) findViewById(R.id.ca_ek2);
-		vehicle_details_ = (TextView) findViewById(R.id.vehicle_details_);
-		line_19 = (View) findViewById(R.id.line_19);
-		vehicle_number_ = (TextView) findViewById(R.id.vehicle_number_);
-		text = (TextView) findViewById(R.id.text);
-		text_ek1 = (TextView) findViewById(R.id.text_ek1);
-		text_ek2 = (TextView) findViewById(R.id.text_ek2);
-		text_ek3 = (TextView) findViewById(R.id.text_ek3);
-		text_ek4 = (TextView) findViewById(R.id.text_ek4);
-		text_ek6 = (TextView) findViewById(R.id.text_ek6);
-		text_ek7 = (TextView) findViewById(R.id.text_ek7);
-		text_ek9 = (TextView) findViewById(R.id.text_ek9);
-		text_ek10 = (TextView) findViewById(R.id.text_ek10);
-		text_ek12 = (TextView) findViewById(R.id.text_ek12);
-		hhhh = (TextView) findViewById(R.id.hhhh);
-		text_ek13 = (TextView) findViewById(R.id.text_ek13);
-		text_ek14 = (TextView) findViewById(R.id.text_ek14);
-		text_ek15 = (TextView) findViewById(R.id.text_ek15);
-		text_ek16 = (TextView) findViewById(R.id.text_ek16);
-		text_ek17 = (TextView) findViewById(R.id.text_ek17);
-		text_ek18 = (TextView) findViewById(R.id.text_ek18);
-		text_ek20 = (TextView) findViewById(R.id.text_ek20);
-		text_ek21 = (TextView) findViewById(R.id.text_ek21);
-		text_ek23 = (TextView) findViewById(R.id.text_ek23);
-		text_ek24 = (TextView) findViewById(R.id.text_ek24);
-		text_ek26 = (TextView) findViewById(R.id.text_ek26);
-		hhhh_ek1 = (TextView) findViewById(R.id.hhhh_ek1);
-		text_ek27 = (TextView) findViewById(R.id.text_ek27);
-		rectangle_80 = (View) findViewById(R.id.rectangle_80);
-		line_20 = (View) findViewById(R.id.line_20);
-		rectangle_80_ek1 = (View) findViewById(R.id.rectangle_80_ek1);
-		rectangle_76_ek1 = (View) findViewById(R.id.rectangle_76_ek1);
-		rectangle_81 = (View) findViewById(R.id.rectangle_81);
-		rectangle_82 = (View) findViewById(R.id.rectangle_82);
-		cancelled_ek1 = (TextView) findViewById(R.id.cancelled_ek1);
-		pending_ek1 = (TextView) findViewById(R.id.pending_ek1);
-		process_ek1 = (TextView) findViewById(R.id.process_ek1);
-		delivered_ek1 = (TextView) findViewById(R.id.delivered_ek1);
-		changes_to_be_made_from_showroom_side = (TextView) findViewById(R.id.changes_to_be_made_from_showroom_side);
-		rectangle_60 = (View) findViewById(R.id.rectangle_60);
-		pay = (TextView) findViewById(R.id.pay);
 
-		vector_ek1 = (ImageView) findViewById(R.id.vector_ek1);
-		vector_ek20 = (ImageView) findViewById(R.id.vector_ek20);
-		vector_ek4 = (ImageView) findViewById(R.id.vector_ek4);
+		// Example of handling a button click (Cancel)
+		Button btnCancel = findViewById(R.id.btn_cancel);
+		btnCancel.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Perform action when Cancel button is clicked
+				Toast.makeText(details_to_be_filled_activity.this, "Cancel button clicked", Toast.LENGTH_SHORT).show();
+			}
+		});
 
-		rectangle_92 = (View) findViewById(R.id.rectangle_92);
-		image_1 = (ImageView) findViewById(R.id.image_1);
-		add_part_name___services = (TextView) findViewById(R.id.add_part_name___services);
-	
-		
-		//custom code goes here
-	
+		// Example of handling another button click (Accept)
+		Button btnAccept = findViewById(R.id.btn_accept);
+		btnAccept.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Perform action when Accept button is clicked
+				Toast.makeText(details_to_be_filled_activity.this, "Accept button clicked", Toast.LENGTH_SHORT).show();
+			}
+		});
+
+		// Other initialization or custom logic can go here
 	}
 }
-	
-	
