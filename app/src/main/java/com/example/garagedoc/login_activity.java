@@ -1,82 +1,81 @@
+package com.example.garagedoc;
 
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		dashboard
-	 *	@date 		Wednesday 05th of June 2024 09:02:46 PM
-	 *	@title 		Admin Panel
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-
-	package com.example.garagedoc;
-
-	import android.app.Activity;
-	import android.content.Intent;
-	import android.os.Bundle;
-	import android.view.View;
-	import android.widget.ImageView;
-	import android.widget.TextView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseUser;
 
 public class login_activity extends Activity {
 
-	
-	private View _bg__login_ek2;
 	private ImageView ellipse_1;
 	private TextView garage_doc_ek1;
 	private ImageView black_and_white_modern_typographic_simple_virus_apparel_logo__1__1;
 	private View rectangle_1_ek1;
-	private TextView username;
+	private EditText username;
 	private View rectangle_2;
-	private TextView password;
-	private View rectangle_2_ek1;
-	private TextView submit;
+	private EditText password;
+	private Button submit;
+
+	private FirebaseAuth mAuth;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
 
-		
+		// Initialize Firebase Auth
+		mAuth = FirebaseAuth.getInstance();
 
-		ellipse_1 = (ImageView) findViewById(R.id.ellipse_1);
-		garage_doc_ek1 = (TextView) findViewById(R.id.garage_doc_ek1);
-		black_and_white_modern_typographic_simple_virus_apparel_logo__1__1 = (ImageView) findViewById(R.id.black_and_white_modern_typographic_simple_virus_apparel_logo__1__1);
-		rectangle_1_ek1 = (View) findViewById(R.id.rectangle_1_ek1);
-		username = (TextView) findViewById(R.id.username);
-		rectangle_2 = (View) findViewById(R.id.rectangle_2);
-		password = (TextView) findViewById(R.id.password);
-		rectangle_2_ek1 = (View) findViewById(R.id.rectangle_2_ek1);
+		// Find views by ID
+		ellipse_1 = findViewById(R.id.ellipse_1);
+		garage_doc_ek1 = findViewById(R.id.garage_doc_ek1);
+		black_and_white_modern_typographic_simple_virus_apparel_logo__1__1 = findViewById(R.id.black_and_white_modern_typographic_simple_virus_apparel_logo__1__1);
+		rectangle_1_ek1 = findViewById(R.id.rectangle_1_ek1);
+		username = findViewById(R.id.username);
+		rectangle_2 = findViewById(R.id.rectangle_2);
+		password = findViewById(R.id.password);
+		submit = findViewById(R.id.submit);
 
-
-
-
-
-		rectangle_2_ek1.setOnClickListener(new View.OnClickListener() {
+		// Set click listener on the submit button
+		submit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				try {
-					// Start the dashboard_activity
-					Intent intent = new Intent(login_activity.this, dashboard_activity.class);
-					startActivity(intent);
-				} catch (Exception e) {
-					e.printStackTrace();
+				String email = username.getText().toString();
+				String pass = password.getText().toString();
+
+				if (!email.isEmpty() && !pass.isEmpty()) {
+					loginUser(email, pass);
+				} else {
+					Toast.makeText(login_activity.this, "Please enter both username and password.", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
-	
-		
+	}
 
-	
+	private void loginUser(String email, String password) {
+		mAuth.signInWithEmailAndPassword(email, password)
+				.addOnCompleteListener(this, task -> {
+					if (task.isSuccessful()) {
+						// Sign in success
+						FirebaseUser user = mAuth.getCurrentUser();
+						Toast.makeText(login_activity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+						// Start the dashboard_activity
+						Intent intent = new Intent(login_activity.this, dashboard_activity.class);
+						startActivity(intent);
+					} else {
+						// If sign in fails, display a message to the user.
+						FirebaseAuthException e = (FirebaseAuthException) task.getException();
+						Toast.makeText(login_activity.this, "Authentication failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+					}
+				});
 	}
 }
-	
-
-
