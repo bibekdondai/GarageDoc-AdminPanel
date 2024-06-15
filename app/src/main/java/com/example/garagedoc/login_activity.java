@@ -78,4 +78,5 @@ public class login_activity extends Activity {
 	}
 }
 	
-	
+
+

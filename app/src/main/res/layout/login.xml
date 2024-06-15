@@ -30,10 +30,14 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_marginStart="0dp"
-			android:layout_marginTop="0dp"
-			>
+			android:layout_marginTop="0dp">
 
 			<!-- Ellipse ImageView -->
+
+			<!-- Garage Doc TextView -->
+
+			<!-- Logo ImageView -->
+
 			<ImageView
 				android:id="@+id/ellipse_1"
 				android:layout_width="505dp"
@@ -45,14 +49,16 @@
 				android:scaleType="fitXY"
 				android:src="@drawable/ellipse_1" />
 
-			<!-- Garage Doc TextView -->
+			<!-- Rectangle 1 View -->
 
-			<!-- Logo ImageView -->
+			<!-- Username TextView -->
+
+			<!-- Rectangle 2 View -->
 
 			<TextView
 				android:id="@+id/garage_doc_ek1"
-				android:layout_width="315dp"
-				android:layout_height="87.5dp"
+				android:layout_width="wrap_content"
+				android:layout_height="74dp"
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="20dp"
 				android:layout_marginTop="280dp"
@@ -63,8 +69,8 @@
 
 			<ImageView
 				android:id="@+id/black_and_white_modern_typographic_simple_virus_apparel_logo__1__1"
-				android:layout_width="245dp"
-				android:layout_height="251dp"
+				android:layout_width="183dp"
+				android:layout_height="209dp"
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="57dp"
 				android:layout_marginTop="19dp"
@@ -72,67 +78,67 @@
 				android:scaleType="fitXY"
 				android:src="@drawable/black_and_white_modern_typographic_simple_virus_apparel_logo__1__1" />
 
-			<!-- Rectangle 1 View -->
 			<View
 				android:id="@+id/rectangle_1_ek1"
-				android:layout_width="319dp"
-				android:layout_height="48dp"
+				android:layout_width="235dp"
+				android:layout_height="43dp"
 				android:layout_alignParentTop="true"
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="23dp"
-				android:layout_marginTop="455dp"
+				android:layout_marginTop="417dp"
 				android:background="@drawable/rectangle_101_shape" />
 
-			<!-- Username TextView -->
-			<TextView
+			<EditText
 				android:id="@+id/username"
 				android:layout_width="142dp"
 				android:layout_height="48dp"
 				android:layout_alignTop="@+id/black_and_white_modern_typographic_simple_virus_apparel_logo__1__1"
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="61dp"
-				android:layout_marginTop="444dp"
-				android:text="@string/username_string"
+				android:layout_marginTop="400dp"
+				android:hint="@string/username_string"
+				android:inputType="text"
 				android:textColor="@color/black"
 				android:textSize="22sp" />
 
-			<!-- Rectangle 2 View -->
+			<!-- Password TextView -->
 			<View
 				android:id="@+id/rectangle_2"
-				android:layout_width="319dp"
-				android:layout_height="49dp"
+				android:layout_width="235dp"
+				android:layout_height="42dp"
 				android:layout_alignTop="@+id/black_and_white_modern_typographic_simple_virus_apparel_logo__1__1"
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="23dp"
-				android:layout_marginTop="509dp"
+				android:layout_marginTop="473dp"
 				android:background="@drawable/rectangle_101_shape" />
 
-			<!-- Password TextView -->
-			<TextView
+
+			<!-- Rectangle 2 ek1 View -->
+
+			<!-- Submit TextView -->
+			<EditText
 				android:id="@+id/password"
 				android:layout_width="135dp"
 				android:layout_height="48dp"
 				android:layout_alignParentTop="true"
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="61dp"
-				android:layout_marginTop="536dp"
-				android:text="@string/password_string"
+				android:layout_marginTop="486dp"
+				android:hint="password"
+				android:inputType="textPassword"
 				android:textColor="@color/black"
 				android:textSize="22sp" />
 
-
-			<!-- Rectangle 2 ek1 View -->
 			<View
 				android:id="@+id/rectangle_2_ek1"
-				android:layout_width="217dp"
-				android:layout_height="51dp"
+				android:layout_width="164dp"
+				android:layout_height="52dp"
 				android:layout_alignParentTop="true"
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="61dp"
-				android:layout_marginTop="699dp"
+				android:layout_marginTop="562dp"
 				android:background="@drawable/rectangle_2_ek1_shape" />
 
-			<!-- Submit TextView -->
 			<TextView
 				android:id="@+id/submit"
 				android:layout_width="98dp"
@@ -140,7 +146,7 @@
 				android:layout_alignTop="@+id/black_and_white_modern_typographic_simple_virus_apparel_logo__1__1"
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="134dp"
-				android:layout_marginTop="691dp"
+				android:layout_marginTop="563dp"
 				android:clickable="true"
 				android:focusable="true"
 				android:text="@string/submit_string"

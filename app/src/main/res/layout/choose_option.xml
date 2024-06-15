@@ -1,0 +1,89 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent" android:layout_height="wrap_content" >
+
+	<ScrollView android:id="@+id/choose_option" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+			<View   android:id="@+id/line_10"
+				android:background="@drawable/line_10_shape"
+				 android:layout_marginStart="-220dp"
+				android:layout_marginTop="-185dp"
+				android:layout_width="363dp"
+				android:layout_height="1dp" />
+
+
+
+
+
+
+
+
+
+			<RelativeLayout android:id="@+id/page_choose_option_ek1"
+				android:layout_marginTop="0dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+				<View   android:id="@+id/_bg__choose_option_ek2"
+					android:background="@drawable/_bg__choose_option_ek2_shape"
+					 android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="353dp"
+					android:layout_height="206dp" />
+
+				<View
+					android:id="@+id/rectangle_101"
+					android:layout_width="149dp"
+					android:layout_height="146dp"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentTop="true"
+					android:layout_marginStart="11dp"
+					android:layout_marginTop="27dp"
+					android:background="@drawable/rectangle_101_shape" />
+
+				<TextView android:id="@+id/part_maintenance"
+
+					android:textSize="20sp"
+					android:textColor="@color/rectangle_1_color"
+					android:layout_marginStart="11dp"
+					android:layout_marginTop="63dp"
+					android:layout_width="174dp"
+					android:layout_height="90dp"
+					android:text="Part Maintenance"
+					 />
+
+				<View
+					android:id="@+id/rectangle_102"
+					android:layout_width="149dp"
+					android:layout_height="146dp"
+					android:layout_alignParentTop="true"
+					android:layout_marginStart="29dp"
+					android:layout_marginTop="27dp"
+					android:layout_toEndOf="@+id/rectangle_101"
+					android:background="@drawable/rectangle_102_shape" />
+
+				<TextView android:id="@+id/part_replacement"
+
+					android:textSize="20sp"
+					android:textColor="@color/rectangle_1_color"
+					android:layout_marginStart="196dp"
+					android:layout_marginTop="63dp"
+					android:layout_width="160dp"
+					android:layout_height="74dp"
+					android:text="@string/part_replacement_string"
+					 />
+
+			</RelativeLayout>
+
+
+		</RelativeLayout>
+
+	</ScrollView>
+</HorizontalScrollView>
