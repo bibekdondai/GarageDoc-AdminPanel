@@ -65,7 +65,8 @@
 				android:fontFamily="@font/ruslan_display"
 				android:text="GARAGE DOC"
 				android:textColor="@color/_bg__login_ek2_color"
-				android:textSize="39sp" />
+				android:textSize="39sp"
+				android:scaleType="fitXY"/>
 
 			<ImageView
 				android:id="@+id/black_and_white_modern_typographic_simple_virus_apparel_logo__1__1"
@@ -96,6 +97,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="61dp"
 				android:layout_marginTop="400dp"
+				android:autofillHints=""
 				android:hint="@string/username_string"
 				android:inputType="text"
 				android:textColor="@color/black"
@@ -124,12 +126,15 @@
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="61dp"
 				android:layout_marginTop="486dp"
-				android:hint="password"
+				android:hint="@string/password"
 				android:inputType="textPassword"
 				android:textColor="@color/black"
-				android:textSize="22sp" />
+				android:textSize="22sp"
+				android:autofillHints="" />
 
-			<View
+
+
+			<Button
 				android:id="@+id/rectangle_2_ek1"
 				android:layout_width="164dp"
 				android:layout_height="52dp"
@@ -137,21 +142,11 @@
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="61dp"
 				android:layout_marginTop="562dp"
-				android:background="@drawable/rectangle_2_ek1_shape" />
+				android:background="@drawable/rectangle_67_shape"
+				android:text="Submit"
+				android:scaleType="fitXY"/>
 
-			<TextView
-				android:id="@+id/submit"
-				android:layout_width="98dp"
-				android:layout_height="44dp"
-				android:layout_alignTop="@+id/black_and_white_modern_typographic_simple_virus_apparel_logo__1__1"
-				android:layout_centerHorizontal="true"
-				android:layout_marginStart="134dp"
-				android:layout_marginTop="563dp"
-				android:clickable="true"
-				android:focusable="true"
-				android:text="@string/submit_string"
-				android:textColor="@color/_logout_color"
-				android:textSize="20sp" />
+
 		</RelativeLayout>
 
 	</RelativeLayout>

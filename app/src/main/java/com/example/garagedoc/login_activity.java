@@ -54,12 +54,12 @@ public class login_activity extends Activity {
 		rectangle_2 = (View) findViewById(R.id.rectangle_2);
 		password = (TextView) findViewById(R.id.password);
 		rectangle_2_ek1 = (View) findViewById(R.id.rectangle_2_ek1);
-		submit = (TextView) findViewById(R.id.submit);
 
 
 
 
-		submit.setOnClickListener(new View.OnClickListener() {
+
+		rectangle_2_ek1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				try {
