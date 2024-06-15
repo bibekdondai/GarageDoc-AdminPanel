@@ -1,19 +1,23 @@
 package com.example.garagedoc;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.content.Intent;
-import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class dashboard_activity extends Activity {
 
@@ -58,33 +62,42 @@ public class dashboard_activity extends Activity {
 			startActivity(logoutIntent);
 		});
 
-		// Fetch and display data from Firebase
-		fetchAndDisplayData();
+		// Fetch and display data from Firestore
+		if (isNetworkAvailable()) {
+			fetchAndDisplayData();
+		} else {
+			Toast.makeText(this, "No internet connection. Please try again later.", Toast.LENGTH_LONG).show();
+		}
 	}
 
 	private void fetchAndDisplayData() {
-		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("your_database_path");
+		FirebaseFirestore db = FirebaseFirestore.getInstance();
+		CollectionReference collectionReference = db.collection("bike_details");
 
-		databaseReference.addValueEventListener(new ValueEventListener() {
-			@Override
-			public void onDataChange(DataSnapshot dataSnapshot) {
-				int sn = 1;
-				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-					String tokenTime = snapshot.child("token_time").getValue(String.class);
-					String bikeNo = snapshot.child("bike_no").getValue(String.class);
-					String remarks = snapshot.child("remarks").getValue(String.class);
-					String status = snapshot.child("status").getValue(String.class);
+		collectionReference.get().addOnCompleteListener(task -> {
+			if (task.isSuccessful()) {
+				QuerySnapshot querySnapshot = task.getResult();
+				if (querySnapshot != null) {
+					// Clear the existing rows in the tables
+					upperTable.removeViews(1, upperTable.getChildCount() - 1);
+					lowerTable.removeViews(1, lowerTable.getChildCount() - 1);
 
-					addUpperTableRow(sn, tokenTime, bikeNo, remarks);
-					addLowerTableRow(sn, tokenTime, status);
+					int sn = 1;
+					for (QueryDocumentSnapshot document : querySnapshot) {
+						String tokenTime = document.getString("token_for_bike");
+						String bikeNo = document.getString("number_plate");
+						String remarks = document.getString("remarks");
+						String status = document.getString("status");
 
-					sn++;
+						addUpperTableRow(sn, tokenTime, bikeNo, remarks);
+						addLowerTableRow(sn, tokenTime, bikeNo, status);
+
+						sn++;
+					}
 				}
-			}
-
-			@Override
-			public void onCancelled(DatabaseError databaseError) {
+			} else {
 				// Handle possible errors.
+				Toast.makeText(dashboard_activity.this, "Failed to load data.", Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
@@ -98,10 +111,11 @@ public class dashboard_activity extends Activity {
 		upperTable.addView(row);
 	}
 
-	private void addLowerTableRow(int sn, String tokenTime, String status) {
+	private void addLowerTableRow(int sn, String tokenTime, String bikeNo, String status) {
 		TableRow row = new TableRow(this);
 		row.addView(createTextView(String.valueOf(sn)));
 		row.addView(createTextView(tokenTime));
+		row.addView(createTextView(bikeNo));
 		row.addView(createTextView(status));
 		lowerTable.addView(row);
 	}
@@ -112,8 +126,15 @@ public class dashboard_activity extends Activity {
 		textView.setPadding(8, 8, 8, 8);
 		return textView;
 	}
+
 	public void openDetailsPage(View view) {
 		Intent intent = new Intent(this, details_to_be_filled_activity.class);
 		startActivity(intent);
+	}
+
+	private boolean isNetworkAvailable() {
+		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 }

@@ -1,4 +1,8 @@
 buildscript {
+    repositories {
+        google()  // Google's Maven repository
+        mavenCentral()
+    }
     dependencies {
         classpath("com.google.gms:google-services:4.4.2")
     }
@@ -7,4 +11,10 @@ buildscript {
 plugins {
     id("com.android.application") version "8.2.1" apply false
     id("org.jetbrains.kotlin.android") version "1.9.22" apply false
+}
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
 }

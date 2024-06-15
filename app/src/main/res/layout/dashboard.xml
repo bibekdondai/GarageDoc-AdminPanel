@@ -94,6 +94,7 @@
 				<TableRow>
 					<TextView android:text="S.N" android:padding="8dp"/>
 					<TextView android:text="Token Time" android:padding="8dp"/>
+					<TextView android:text="Bike No." android:padding="8dp"/>
 					<TextView android:text="Status" android:padding="8dp"/>
 				</TableRow>
 

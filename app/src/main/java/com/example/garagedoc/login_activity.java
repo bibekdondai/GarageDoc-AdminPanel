@@ -1,7 +1,10 @@
 package com.example.garagedoc;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -53,7 +56,11 @@ public class login_activity extends Activity {
 				String pass = password.getText().toString();
 
 				if (!email.isEmpty() && !pass.isEmpty()) {
-					loginUser(email, pass);
+					if (isNetworkAvailable()) {
+						loginUser(email, pass);
+					} else {
+						Toast.makeText(login_activity.this, "No internet connection.", Toast.LENGTH_SHORT).show();
+					}
 				} else {
 					Toast.makeText(login_activity.this, "Please enter both username and password.", Toast.LENGTH_SHORT).show();
 				}
@@ -74,8 +81,14 @@ public class login_activity extends Activity {
 					} else {
 						// If sign in fails, display a message to the user.
 						FirebaseAuthException e = (FirebaseAuthException) task.getException();
-						Toast.makeText(login_activity.this, "Authentication failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+						Toast.makeText(login_activity.this, "Incorrect Username/Password " + e.getMessage(), Toast.LENGTH_SHORT).show();
 					}
 				});
+	}
+
+	private boolean isNetworkAvailable() {
+		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 }
