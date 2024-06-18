@@ -31,6 +31,12 @@
 
 			<!-- Logo ImageView -->
 
+			<!-- Rectangle 1 View -->
+
+			<!-- Username TextView -->
+
+			<!-- Rectangle 2 View -->
+
 			<ImageView
 				android:id="@+id/ellipse_1"
 				android:layout_width="505dp"
@@ -41,12 +47,6 @@
 				android:contentDescription="@string/ellipse_1"
 				android:scaleType="fitXY"
 				android:src="@drawable/ellipse_1" />
-
-			<!-- Rectangle 1 View -->
-
-			<!-- Username TextView -->
-
-			<!-- Rectangle 2 View -->
 
 			<TextView
 				android:id="@+id/garage_doc_ek1"
