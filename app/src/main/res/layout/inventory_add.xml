@@ -1,0 +1,630 @@
+<FrameLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:background="@drawable/_bg__add_bike_scooter_ek2_shape">
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="50dp">
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+
+
+        <View
+            android:id="@+id/box_1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="-17dp"
+            android:background="@drawable/rectangle_1_shape" />
+
+
+    <TextView
+        android:id="@+id/garage_doc"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/ruslan_display"
+        android:text="@string/garage_doc_string"
+        android:textColor="@color/garage_doc_color"
+        android:textSize="39sp" />
+
+    <View
+            android:id="@+id/box_2"
+        android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_below="@+id/box_1"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="37dp"
+            android:background="@drawable/rectangle_93_ek1_shape" />
+
+        <TextView
+            android:id="@+id/inventory_management"
+            android:layout_centerHorizontal="@+id/box_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/box_2"
+            android:layout_alignTop="@+id/box_2"
+            android:layout_alignEnd="@+id/box_2"
+
+
+            android:layout_marginTop="5dp"
+
+            android:text="Inventory Management"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="25sp" />
+
+        <RelativeLayout
+            android:id="@+id/l1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp">
+
+        <Button
+            android:id="@+id/btn_1"
+            android:layout_width="340dp"
+            android:layout_height="46dp"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="51dp"
+            android:alpha="0.39"
+            android:text="Add Bike Scooter (New)"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle_92_shape" />
+
+        <ImageView
+            android:id="@+id/image_1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignStart="@+id/btn_1"
+            android:layout_alignTop="@+id/btn_1"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="7dp"
+            android:contentDescription="image_1"
+            android:src="@drawable/image_1" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/bike_scooter_model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="22dp"
+            android:text="Bike Scooter Model:"
+            android:layout_below="@+id/btn_1"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/boxtxt_1"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btn_1"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@+id/bike_scooter_model"
+            android:alpha="0.39"
+            android:background="@drawable/rectangle_92_shape" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bike_scooter_model"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="38dp"
+            android:text="Price:"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/boxtxt_2"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/boxtxt_1"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@+id/price"
+            android:alpha="0.39"
+            android:background="@drawable/rectangle_92_shape"
+            android:inputType="numberDecimal"/>
+
+        <Button
+            android:id="@+id/btn_2"
+            android:layout_width="40dp"
+            android:layout_height="46dp"
+            android:layout_below="@+id/boxtxt_2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="13dp"
+            android:alpha="0.39"
+            android:text="Done"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle_92_shape" />
+
+            <View
+                android:id="@+id/line_19"
+                android:layout_below="@+id/btn_2"
+                android:background="@drawable/line_19_shape"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp" />
+
+                 </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/l2"
+        android:layout_below="@+id/l1"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/btn_3"
+            android:layout_width="340dp"
+            android:layout_height="46dp"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="51dp"
+            android:alpha="0.39"
+            android:text="Delete Bike Scooter (Existing)"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle_92_shape" />
+
+        <ImageView
+            android:id="@+id/image_2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignStart="@+id/btn_3"
+            android:layout_alignTop="@+id/btn_3"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="7dp"
+            android:contentDescription="image_1"
+            android:src="@drawable/image_1" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/bike_scooter_model_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="22dp"
+            android:text="Bike Scooter Model:"
+            android:layout_below="@+id/btn_3"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/boxtxt_1_1"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btn_3"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@+id/bike_scooter_model_1"
+            android:alpha="0.39"
+            android:background="@drawable/rectangle_92_shape" />
+
+        <Button
+            android:id="@+id/btn_4"
+            android:layout_width="40dp"
+            android:layout_height="46dp"
+            android:layout_below="@+id/boxtxt_1_1"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="13dp"
+            android:alpha="0.39"
+            android:text="Delete"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle_92_shape" />
+        <View   android:id="@+id/line_1"
+            android:background="@drawable/line_19_shape"
+            android:layout_below="@+id/btn_4"
+
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/l3"
+        android:layout_below="@+id/l2"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/btn_5"
+            android:layout_width="340dp"
+            android:layout_height="46dp"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="51dp"
+            android:alpha="0.39"
+            android:text="Add Part Of Bike/Scooter(new)"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle_92_shape" />
+
+        <ImageView
+            android:id="@+id/image_3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignStart="@+id/btn_5"
+            android:layout_alignTop="@+id/btn_5"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="7dp"
+            android:contentDescription="image_1"
+            android:src="@drawable/image_1" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/bike_scooter_model_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="22dp"
+            android:text="Bike Scooter Model:"
+            android:layout_below="@+id/btn_5"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/boxtxt_1_2"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btn_5"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@+id/bike_scooter_model_2"
+            android:alpha="0.39"
+            android:background="@drawable/rectangle_92_shape" />
+        <TextView
+            android:id="@+id/add_part"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bike_scooter_model_2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="38dp"
+            android:text="Add Part Name:"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/boxtxt_2_2"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/boxtxt_1_2"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@+id/add_part"
+            android:alpha="0.39"
+            android:background="@drawable/rectangle_92_shape" />
+        <TextView
+            android:id="@+id/price_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_part"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="38dp"
+            android:text="Price:"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/boxtxt_2_3"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/boxtxt_2_2"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@+id/price_1"
+            android:alpha="0.39"
+            android:background="@drawable/rectangle_92_shape"
+            android:inputType="numberDecimal"/>
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/price_1"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="38dp"
+            android:text="Quantity:"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/boxtxt_2_4"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/boxtxt_2_3"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@+id/quantity"
+            android:alpha="0.39"
+            android:background="@drawable/rectangle_92_shape"
+            android:inputType="number"/>
+
+
+
+        <Button
+            android:id="@+id/btn_6"
+            android:layout_width="40dp"
+            android:layout_height="46dp"
+            android:layout_below="@+id/boxtxt_2_4"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="13dp"
+            android:alpha="0.39"
+            android:text="Add"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle_92_shape" />
+        <View   android:id="@+id/line_3"
+            android:background="@drawable/line_19_shape"
+            android:layout_below="@+id/btn_6"
+
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp" />
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/l5"
+        android:layout_below="@+id/l3"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/btn_7"
+            android:layout_width="340dp"
+            android:layout_height="46dp"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="51dp"
+            android:alpha="0.39"
+            android:text="Update Part Name"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle_92_shape" />
+
+        <ImageView
+            android:id="@+id/image_4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignStart="@+id/btn_7"
+            android:layout_alignTop="@+id/btn_7"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="7dp"
+            android:contentDescription="image_1"
+            android:src="@drawable/image_1" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/bike_scooter_model_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="22dp"
+            android:text="Bike Scooter Model:"
+            android:layout_below="@+id/btn_7"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/boxtxt_1_3"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/btn_7"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@+id/bike_scooter_model_3"
+            android:alpha="0.39"
+            android:background="@drawable/rectangle_92_shape" />
+        <TextView
+            android:id="@+id/add_part_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bike_scooter_model_3"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="38dp"
+            android:text="Add Part Name:"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/boxtxt_2_5"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/boxtxt_1_3"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="23dp"
+            android:layout_toEndOf="@+id/add_part_1"
+            android:alpha="0.39"
+            android:background="@drawable/rectangle_92_shape" />
+
+        <TextView
+            android:id="@+id/price_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_part_1"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="38dp"
+            android:text="Price:"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/boxtxt_2_6"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/boxtxt_2_5"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@+id/price_2"
+            android:alpha="0.39"
+            android:background="@drawable/rectangle_92_shape"
+            android:inputType="numberDecimal"/>
+        <TextView
+            android:id="@+id/quantity_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/price_2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="38dp"
+            android:text="Quantity:"
+            android:textColor="@color/rectangle_1_color"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/boxtxt_2_7"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/boxtxt_2_6"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@+id/quantity_1"
+            android:alpha="0.39"
+            android:background="@drawable/rectangle_92_shape"
+            android:inputType="number"/>
+
+
+
+        <Button
+            android:id="@+id/btn_8"
+            android:layout_width="40dp"
+            android:layout_height="46dp"
+            android:layout_below="@+id/boxtxt_2_7"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="13dp"
+            android:alpha="0.39"
+            android:text="Update"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle_92_shape" />
+        <View   android:id="@+id/line_4"
+            android:background="@drawable/line_19_shape"
+            android:layout_below="@+id/btn_8"
+
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp" />
+    </RelativeLayout>
+
+
+
+
+
+
+
+</RelativeLayout>
+</ScrollView>
+<RelativeLayout
+    android:id="@+id/frame_23"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:layout_gravity="bottom|center_horizontal"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/rectangle_97_shape">
+
+    <ImageView
+        android:id="@+id/vector_ek1"
+        android:layout_width="29dp"
+        android:layout_height="31dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="7dp"
+        android:contentDescription="vector_ek1"
+        android:src="@drawable/vector_ek1" />
+
+    <ImageView
+        android:id="@+id/vector_ek4"
+        android:layout_width="36dp"
+        android:layout_height="31dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="291dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="30dp"
+        android:contentDescription="@string/vector_ek4"
+        android:src="@drawable/vector_ek4" />
+
+    <ImageView
+        android:id="@+id/vector_ek20"
+        android:layout_width="30dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="7dp"
+        android:contentDescription="vector_ek20"
+        android:src="@drawable/vector_ek20" />
+
+</RelativeLayout>
+
+
+</FrameLayout>

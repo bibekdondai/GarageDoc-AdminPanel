@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".register"
+            android:name=".login_activity"
             android:exported="false" />
         <activity
             android:name=".inventory_add_activity"
@@ -21,17 +21,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".more_option_activity" />
-        <activity android:name=".status_of_vehicles_activity" />
-        <activity android:name=".add_bike_scooter_activity" />
-        <activity android:name=".bike_scooter_details_activity" />
+
         <activity android:name=".notification_activity" />
-        <activity android:name=".mark_as_read_notification__activity" />
+
         <activity android:name=".details_to_be_filled_activity" />
-        <activity android:name=".part_maintenance_activity" />
-        <activity android:name=".part_replacement_activity" />
+
         <activity android:name=".dashboard_activity" />
         <activity android:name=".setting_activity" />
-        <activity android:name=".login_activity" />
+
         <activity android:name=".inventory_details_activity" />
     </application>
 
