@@ -52,28 +52,28 @@ public class more_option_activity extends Activity {
 		dismiss = (TextView) findViewById(R.id.dismiss);
 	
 		
-		_add_bike.setOnClickListener(new View.OnClickListener() {
+//		_add_bike.setOnClickListener(new View.OnClickListener() {
+//
+//			public void onClick(View v) {
+//
+//				Intent nextScreen = new Intent(getApplicationContext(), add_bike_scooter_activity.class);
+//				startActivity(nextScreen);
+//
+//
+//			}
+//		});
 		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), add_bike_scooter_activity.class);
-				startActivity(nextScreen);
-			
 		
-			}
-		});
-		
-		
-		_add_scooter.setOnClickListener(new View.OnClickListener() {
-		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), add_bike_scooter_activity.class);
-				startActivity(nextScreen);
-			
-		
-			}
-		});
+//		_add_scooter.setOnClickListener(new View.OnClickListener() {
+//
+//			public void onClick(View v) {
+//
+//				Intent nextScreen = new Intent(getApplicationContext(), add_bike_scooter_activity.class);
+//				startActivity(nextScreen);
+//
+//
+//			}
+//		});
 		
 		
 		//custom code goes here

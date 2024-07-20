@@ -94,13 +94,13 @@ public class notification_activity extends Activity {
 
 
 
-		_mark_all_as_read.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent markAsReadIntent = new Intent(notification_activity.this, mark_as_read_notification__activity.class);
-				startActivity(markAsReadIntent);
-			}
-		});
+//		_mark_all_as_read.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				Intent markAsReadIntent = new Intent(notification_activity.this, mark_as_read_notification__activity.class);
+//				startActivity(markAsReadIntent);
+//			}
+//		});
 		vector_ek4.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {

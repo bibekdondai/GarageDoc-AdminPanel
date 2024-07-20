@@ -84,15 +84,17 @@
 
 			<EditText
 				android:id="@+id/username"
-				android:layout_width="142dp"
-				android:layout_height="48dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignStart="@+id/rectangle_1_ek1"
 				android:layout_alignTop="@+id/rectangle_1_ek1"
-				android:layout_centerHorizontal="true"
-				android:layout_marginStart="61dp"
+				android:layout_alignEnd="@+id/rectangle_1_ek1"
+				android:layout_marginStart="10dp"
 				android:layout_marginTop="4dp"
+				android:layout_marginEnd="5dp"
 				android:autofillHints=""
 				android:hint="@string/username_string"
-				android:inputType="text"
+				android:inputType="textEmailAddress"
 				android:textColor="@color/black"
 				android:textSize="22sp" />
 
@@ -113,12 +115,14 @@
 			<!-- Submit TextView -->
 			<EditText
 				android:id="@+id/password"
-				android:layout_width="135dp"
-				android:layout_height="48dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignStart="@+id/rectangle_2"
 				android:layout_alignTop="@+id/rectangle_2"
-				android:layout_centerHorizontal="true"
-				android:layout_marginStart="61dp"
+				android:layout_alignEnd="@+id/rectangle_2"
+				android:layout_marginStart="10dp"
 				android:layout_marginTop="4dp"
+				android:layout_marginEnd="5dp"
 				android:autofillHints=""
 				android:hint="@string/password"
 				android:inputType="textPassword"
@@ -149,6 +153,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="61dp"
 				android:layout_marginTop="562dp"
+			    android:layout_marginBottom="100dp"
 				android:background="@drawable/rectangle_67_shape"
 				android:text="Submit" />
 

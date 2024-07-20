@@ -8,11 +8,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
         <activity
             android:name=".login_activity"
-            android:exported="false" />
-        <activity
-            android:name=".inventory_add_activity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true" >
             <intent-filter>
@@ -30,6 +28,7 @@
         <activity android:name=".setting_activity" />
 
         <activity android:name=".inventory_details_activity" />
+        <activity android:name=".inventory_add_activity" />
     </application>
 
 </manifest>
