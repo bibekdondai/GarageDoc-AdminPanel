@@ -1,0 +1,173 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/_bg__add_bike_scooter_ek2_shape">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/_bg__login_ek2_shape">
+
+            <View
+                android:id="@+id/rectangle_1"
+                android:layout_width="match_parent"
+                android:layout_height="207dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/line_19_shape" />
+
+
+            <TextView
+                android:id="@+id/garage_doc"
+                android:layout_width="298.5dp"
+                android:layout_height="69.5dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="59dp"
+                android:text="@string/garage_doc_string"
+                android:textColor="@color/garage_doc_color"
+                android:textSize="39sp" />
+
+            <View
+                android:id="@+id/rectangle_93_ek1"
+                android:layout_width="334dp"
+                android:layout_height="46dp"
+                android:layout_below="@+id/rectangle_1"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="37dp"
+                android:background="@drawable/rectangle_93_ek1_shape" />
+
+            <TextView
+                android:id="@+id/inventory_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/rectangle_93_ek1"
+                android:layout_alignTop="@+id/rectangle_93_ek1"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="5dp"
+                android:text="Inventory Details"
+                android:textColor="@color/rectangle_1_color"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context=".MainActivity"/>
+
+            <TextView
+                android:id="@+id/bike_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rectangle_93_ek1"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="44dp"
+                android:text="@string/bike_model__string"
+                android:textColor="@color/rectangle_1_color"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/boxtxt_1_1"
+                android:layout_width="210dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/rectangle_93_ek1"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="40dp"
+                android:layout_toEndOf="@+id/bike_model"
+                android:alpha="0.39"
+                android:background="@drawable/rectangle_92_shape" />
+
+
+
+            <TextView
+                android:id="@+id/bike_model_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bike_model"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="27dp"
+                android:text="Bike Model"
+                android:textColor="@color/rectangle_1_color"
+                android:textSize="20sp" />
+
+
+
+            <!-- Lower Table -->
+            <TableLayout
+                android:id="@+id/lower_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bike_model_1"
+                android:layout_marginTop="20dp"
+                android:stretchColumns="1,2"
+                android:background="@drawable/rectangle_75_shape">
+
+                <TableRow>
+                    <TextView android:text="S.N" android:padding="8dp"/>
+                    <TextView android:text="Part Name" android:padding="8dp"/>
+                    <TextView android:text="Price" android:padding="8dp"/>
+                    <TextView android:text="Quantity" android:padding="8dp"/>
+                </TableRow>
+
+                <!-- Data rows will be added programmatically -->
+            </TableLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/frame_23"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rectangle_97_shape">
+
+        <ImageView
+            android:id="@+id/vector_ek1"
+            android:layout_width="29dp"
+            android:layout_height="31dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="7dp"
+            android:contentDescription="vector_ek1"
+            android:src="@drawable/vector_ek1" />
+
+        <ImageView
+            android:id="@+id/vector_ek4"
+            android:layout_width="36dp"
+            android:layout_height="31dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="291dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/vector_ek4"
+            android:src="@drawable/vector_ek4" />
+
+        <ImageView
+            android:id="@+id/vector_ek20"
+            android:layout_width="30dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="163dp"
+            android:layout_marginTop="7dp"
+            android:contentDescription="vector_ek20"
+            android:src="@drawable/vector_ek20" />
+
+    </RelativeLayout>
+
+</FrameLayout>
