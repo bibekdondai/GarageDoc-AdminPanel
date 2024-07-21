@@ -1,26 +1,118 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!-- setting_activity.xml -->
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
 
-        <TextView
+<!--    <ScrollView android:id="@+id/notification"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent" >-->
+
+        <RelativeLayout android:id="@+id/content_container"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Settings"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"/>
+            android:layout_height="match_parent" >
 
-        <!-- Add your setting options here -->
-        <!-- Example: Toggle Switch for Notification -->
+            <!--			<View   android:id="@+id/line_10"-->
+            <!--				android:background="@drawable/line_10_shape"-->
+            <!--				 android:layout_marginStart="-220dp"-->
+            <!--				android:layout_marginTop="-185dp"-->
+            <!--				android:layout_width="363dp"-->
+            <!--				android:layout_height="1dp" />-->
 
-    </LinearLayout>
+            <RelativeLayout android:id="@+id/page_notification_ek7"
+                android:background="@drawable/_bg__notification_ek8_shape"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/notification_ek12"
+                    android:textSize="35sp"
+                    android:textColor="@color/rectangle_1_color"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="52dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Setting" />
+
+                <Button
+                    android:id="@+id/inventory_add_btn"
+                    android:layout_width="340dp"
+                    android:layout_height="46dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="150dp"
+                    android:layout_marginEnd="40dp"
+                    android:alpha="0.39"
+                    android:background="@drawable/rectangle_92_shape"
+                    android:text="Inventory Add"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/inventory_details_btn"
+                    android:layout_width="340dp"
+                    android:layout_height="46dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="220dp"
+                    android:layout_marginEnd="40dp"
+                    android:alpha="0.39"
+                    android:background="@drawable/rectangle_92_shape"
+                    android:text="Inventory Details"
+                    android:textColor="@color/black" />
+
+
+                <RelativeLayout
+                    android:id="@+id/frame_23"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/rectangle_97_shape">
+
+                    <ImageView
+                        android:id="@+id/vector_ek1"
+                        android:layout_width="29dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="7dp"
+                        android:contentDescription="vector_ek1"
+                        android:src="@drawable/vector_ek1" />
+
+                    <ImageView
+                        android:id="@+id/vector_ek4"
+                        android:layout_width="36dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="291dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginEnd="30dp"
+                        android:contentDescription="@string/vector_ek4"
+                        android:src="@drawable/vector_ek4" />
+
+                    <ImageView
+                        android:id="@+id/vector_ek20"
+                        android:layout_width="30dp"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="175dp"
+                        android:layout_marginTop="7dp"
+                        android:contentDescription="vector_ek20"
+                        android:src="@drawable/vector_ek20" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+<!--    </ScrollView>-->
+</FrameLayout>

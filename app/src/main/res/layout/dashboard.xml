@@ -18,14 +18,17 @@
 				android:id="@+id/rectangle_1"
 				android:layout_width="match_parent"
 				android:layout_height="207dp"
+				android:layout_alignParentStart="true"
+				android:layout_alignParentEnd="true"
 				android:layout_marginStart="0dp"
 				android:layout_marginTop="-17dp"
+				android:layout_marginEnd="0dp"
 				android:background="@drawable/rectangle_1_shape" />
 
 			<TextView
 				android:id="@+id/_logout"
-				android:layout_width="111.5dp"
-				android:layout_height="55.5dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
 				android:layout_marginStart="265dp"
 				android:layout_marginTop="136dp"
 				android:text="@string/_logout_string"
@@ -34,8 +37,8 @@
 
 			<TextView
 				android:id="@+id/garage_doc"
-				android:layout_width="298.5dp"
-				android:layout_height="69.5dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
 				android:layout_marginStart="13dp"
 				android:layout_marginTop="59dp"
 				android:text="@string/garage_doc_string"
