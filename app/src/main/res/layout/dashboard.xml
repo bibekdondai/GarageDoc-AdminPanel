@@ -70,11 +70,7 @@
 						android:padding="8dp"
 						android:text="Remarks" />
 
-					<Button
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:text="View Details"
-						android:onClick="openDetailsPage" />
+
 				</TableRow>
 
 				<!-- Data rows will be added programmatically -->

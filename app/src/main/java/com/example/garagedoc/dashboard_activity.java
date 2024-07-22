@@ -13,11 +13,13 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import java.util.Map;
 
 public class dashboard_activity extends Activity {
 
@@ -62,7 +64,7 @@ public class dashboard_activity extends Activity {
 			startActivity(logoutIntent);
 		});
 
-		// Fetch and display data from Firestore
+		// Fetch and display data from Realtime Database
 		if (isNetworkAvailable()) {
 			fetchAndDisplayData();
 		} else {
@@ -70,39 +72,71 @@ public class dashboard_activity extends Activity {
 		}
 	}
 
+	private void addHeaderRow(TableLayout table, String col1, String col2, String col3, String col4, String col5) {
+		TableRow headerRow = new TableRow(this);
+		headerRow.addView(createTextView(col1));
+		headerRow.addView(createTextView(col2));
+		headerRow.addView(createTextView(col3));
+		headerRow.addView(createTextView(col4));
+		headerRow.addView(createTextView(col5));
+		table.addView(headerRow);
+	}
+
+
 	private void fetchAndDisplayData() {
-		FirebaseFirestore db = FirebaseFirestore.getInstance();
-		CollectionReference collectionReference = db.collection("bike_details");
+		FirebaseDatabase database = FirebaseDatabase.getInstance();
+		DatabaseReference ref = database.getReference("users");
 
-		collectionReference.get().addOnCompleteListener(task -> {
-			if (task.isSuccessful()) {
-				QuerySnapshot querySnapshot = task.getResult();
-				if (querySnapshot != null) {
-					// Clear the existing rows in the tables
-					upperTable.removeViews(1, upperTable.getChildCount() - 1);
-					lowerTable.removeViews(1, lowerTable.getChildCount() - 1);
+		ref.addValueEventListener(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				// Clear existing rows in the tables before adding new data
+				upperTable.removeAllViews();
+				lowerTable.removeAllViews();
 
-					int sn = 1;
-					for (QueryDocumentSnapshot document : querySnapshot) {
-						String tokenTime = document.getString("token_for_bike");
-						String bikeNo = document.getString("number_plate");
-						String remarks = document.getString("remarks");
-						String status = document.getString("status");
+				// Create header rows
+				addHeaderRow(upperTable, "S.N", "User", "Token Time", "Bike No.", "Remarks");
+				addHeaderRow(lowerTable, "S.N", "User", "Token Time", "Bike No.", "Status");
 
-						addUpperTableRow(sn, tokenTime, bikeNo, remarks);
-						addLowerTableRow(sn, tokenTime, bikeNo, status);
+				int sn = 1;
+				for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+					String userId = userSnapshot.getKey();
+					DataSnapshot bikesSnapshot = userSnapshot.child("bikes");
 
-						sn++;
+					for (DataSnapshot bikeSnapshot : bikesSnapshot.getChildren()) {
+						String plateNumber = bikeSnapshot.getKey();
+						DataSnapshot servicesSnapshot = bikeSnapshot.child("services");
+
+						for (DataSnapshot serviceSnapshot : servicesSnapshot.getChildren()) {
+							// Handle HashMap conversion
+							String tokenTime = serviceSnapshot.getKey();
+							Map<String, Object> serviceData = (Map<String, Object>) serviceSnapshot.getValue();
+
+							// Extract individual data points
+							String bikeNo = (String) serviceData.get("number_plate");
+							String remarks = (String) serviceData.get("remarks");
+							String status = (String) serviceData.get("status");
+
+							addUpperTableRow(sn, userId, tokenTime, bikeNo, remarks);
+							addLowerTableRow(sn, userId, tokenTime, bikeNo, status);
+							sn++;
+						}
 					}
 				}
-			} else {
-				// Handle possible errors.
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
 				Toast.makeText(dashboard_activity.this, "Failed to load data.", Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
 
-	private void addUpperTableRow(int sn, String tokenTime, String bikeNo, String remarks) {
+
+
+
+
+	private void addUpperTableRow(int sn, String tokenTime, String bikeNo, String remarks, String s) {
 		TableRow row = new TableRow(this);
 		row.addView(createTextView(String.valueOf(sn)));
 		row.addView(createTextView(tokenTime));
@@ -111,7 +145,7 @@ public class dashboard_activity extends Activity {
 		upperTable.addView(row);
 	}
 
-	private void addLowerTableRow(int sn, String tokenTime, String bikeNo, String status) {
+	private void addLowerTableRow(int sn, String tokenTime, String bikeNo, String status, String s) {
 		TableRow row = new TableRow(this);
 		row.addView(createTextView(String.valueOf(sn)));
 		row.addView(createTextView(tokenTime));

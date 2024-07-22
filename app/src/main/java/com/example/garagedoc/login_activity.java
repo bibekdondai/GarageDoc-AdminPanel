@@ -13,8 +13,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class login_activity extends Activity {
@@ -79,9 +82,17 @@ public class login_activity extends Activity {
 						Intent intent = new Intent(login_activity.this, dashboard_activity.class);
 						startActivity(intent);
 					} else {
-						// If sign in fails, display a message to the user.
-						FirebaseAuthException e = (FirebaseAuthException) task.getException();
-						Toast.makeText(login_activity.this, "Incorrect Username/Password " + e.getMessage(), Toast.LENGTH_SHORT).show();
+						try {
+							throw task.getException();
+						} catch (FirebaseAuthInvalidUserException e) {
+							Toast.makeText(login_activity.this, "Invalid email address", Toast.LENGTH_SHORT).show();
+						} catch (FirebaseAuthInvalidCredentialsException e) {
+							Toast.makeText(login_activity.this, "Invalid password", Toast.LENGTH_SHORT).show();
+						} catch (FirebaseTooManyRequestsException e) {
+							Toast.makeText(login_activity.this, "Too many failed attempts. Try again later.", Toast.LENGTH_LONG).show();
+						} catch (Exception e) {
+							Toast.makeText(login_activity.this, "Login failed. Please try again.", Toast.LENGTH_SHORT).show();
+						}
 					}
 				});
 	}
