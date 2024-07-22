@@ -2,19 +2,13 @@
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
-android:layout_height="match_parent"
-    android:background="@drawable/_bg__add_bike_scooter_ek2_shape">
-<ScrollView
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="50dp">
+android:layout_height="match_parent">
+
 <RelativeLayout
 
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-
-
+    android:layout_height="match_parent"
+    android:background="@drawable/_bg__add_bike_scooter_ek2_shape">
 
         <View
             android:id="@+id/box_1"
@@ -24,23 +18,24 @@ android:layout_height="match_parent"
             android:layout_marginTop="-17dp"
             android:background="@drawable/rectangle_1_shape" />
 
-
-    <TextView
-        android:id="@+id/garage_doc"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="17dp"
-        android:fontFamily="@font/ruslan_display"
-        android:text="@string/garage_doc_string"
-        android:textColor="@color/garage_doc_color"
-        android:textSize="39sp" />
-
-    <View
-            android:id="@+id/box_2"
-        android:layout_centerHorizontal="true"
+        <TextView
+            android:id="@+id/garage_doc"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="146dp"
+            android:fontFamily="@font/ruslan_display"
+            android:text="@string/garage_doc_string"
+            android:textColor="@color/garage_doc_color"
+            android:textSize="39sp" />
+
+        <View
+            android:id="@+id/box_2"
+            android:layout_width="334dp"
             android:layout_height="46dp"
             android:layout_below="@+id/box_1"
             android:layout_alignParentStart="true"
@@ -52,16 +47,14 @@ android:layout_height="match_parent"
 
         <TextView
             android:id="@+id/inventory_management"
-            android:layout_centerHorizontal="@+id/box_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/box_2"
             android:layout_alignTop="@+id/box_2"
             android:layout_alignEnd="@+id/box_2"
-
-
+            android:layout_marginStart="40dp"
             android:layout_marginTop="5dp"
-
+            android:layout_marginEnd="37dp"
             android:text="Inventory Management"
             android:textColor="@color/rectangle_1_color"
             android:textSize="25sp" />
@@ -76,7 +69,6 @@ android:layout_height="match_parent"
             android:id="@+id/btn_1"
             android:layout_width="340dp"
             android:layout_height="46dp"
-
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="20dp"
@@ -97,10 +89,6 @@ android:layout_height="match_parent"
             android:layout_marginTop="7dp"
             android:contentDescription="image_1"
             android:src="@drawable/image_1" />
-
-
-
-
 
         <TextView
             android:id="@+id/bike_scooter_model"
@@ -146,8 +134,7 @@ android:layout_height="match_parent"
             android:layout_marginTop="22dp"
             android:layout_toEndOf="@+id/price"
             android:alpha="0.39"
-            android:background="@drawable/rectangle_92_shape"
-            android:inputType="numberDecimal"/>
+            android:background="@drawable/rectangle_92_shape" />
 
         <Button
             android:id="@+id/btn_2"
@@ -172,15 +159,11 @@ android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="1dp" />
-
-                 </RelativeLayout>
-
-
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/l2"
         android:layout_below="@+id/l1"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
@@ -189,7 +172,6 @@ android:layout_height="match_parent"
             android:id="@+id/btn_3"
             android:layout_width="340dp"
             android:layout_height="46dp"
-
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="20dp"
@@ -210,10 +192,6 @@ android:layout_height="match_parent"
             android:layout_marginTop="7dp"
             android:contentDescription="image_1"
             android:src="@drawable/image_1" />
-
-
-
-
 
         <TextView
             android:id="@+id/bike_scooter_model_1"
@@ -252,10 +230,11 @@ android:layout_height="match_parent"
             android:text="Delete"
             android:textColor="@color/black"
             android:background="@drawable/rectangle_92_shape" />
-        <View   android:id="@+id/line_1"
+
+        <View
+            android:id="@+id/line_1"
             android:background="@drawable/line_19_shape"
             android:layout_below="@+id/btn_4"
-
             android:layout_marginStart="0dp"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
@@ -265,7 +244,6 @@ android:layout_height="match_parent"
     <RelativeLayout
         android:id="@+id/l3"
         android:layout_below="@+id/l2"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
@@ -274,7 +252,6 @@ android:layout_height="match_parent"
             android:id="@+id/btn_5"
             android:layout_width="340dp"
             android:layout_height="46dp"
-
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="20dp"
@@ -295,10 +272,6 @@ android:layout_height="match_parent"
             android:layout_marginTop="7dp"
             android:contentDescription="image_1"
             android:src="@drawable/image_1" />
-
-
-
-
 
         <TextView
             android:id="@+id/bike_scooter_model_2"
@@ -322,6 +295,7 @@ android:layout_height="match_parent"
             android:layout_toEndOf="@+id/bike_scooter_model_2"
             android:alpha="0.39"
             android:background="@drawable/rectangle_92_shape" />
+
         <TextView
             android:id="@+id/add_part"
             android:layout_width="wrap_content"
@@ -344,6 +318,7 @@ android:layout_height="match_parent"
             android:layout_toEndOf="@+id/add_part"
             android:alpha="0.39"
             android:background="@drawable/rectangle_92_shape" />
+
         <TextView
             android:id="@+id/price_1"
             android:layout_width="wrap_content"
@@ -365,8 +340,8 @@ android:layout_height="match_parent"
             android:layout_marginTop="22dp"
             android:layout_toEndOf="@+id/price_1"
             android:alpha="0.39"
-            android:background="@drawable/rectangle_92_shape"
-            android:inputType="numberDecimal"/>
+            android:background="@drawable/rectangle_92_shape" />
+
         <TextView
             android:id="@+id/quantity"
             android:layout_width="wrap_content"
@@ -388,10 +363,7 @@ android:layout_height="match_parent"
             android:layout_marginTop="22dp"
             android:layout_toEndOf="@+id/quantity"
             android:alpha="0.39"
-            android:background="@drawable/rectangle_92_shape"
-            android:inputType="number"/>
-
-
+            android:background="@drawable/rectangle_92_shape" />
 
         <Button
             android:id="@+id/btn_6"
@@ -407,23 +379,20 @@ android:layout_height="match_parent"
             android:text="Add"
             android:textColor="@color/black"
             android:background="@drawable/rectangle_92_shape" />
-        <View   android:id="@+id/line_3"
+
+        <View
+            android:id="@+id/line_3"
             android:background="@drawable/line_19_shape"
             android:layout_below="@+id/btn_6"
-
             android:layout_marginStart="0dp"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="1dp" />
     </RelativeLayout>
 
-
-
-
     <RelativeLayout
         android:id="@+id/l5"
         android:layout_below="@+id/l3"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
@@ -432,7 +401,6 @@ android:layout_height="match_parent"
             android:id="@+id/btn_7"
             android:layout_width="340dp"
             android:layout_height="46dp"
-
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="20dp"
@@ -453,10 +421,6 @@ android:layout_height="match_parent"
             android:layout_marginTop="7dp"
             android:contentDescription="image_1"
             android:src="@drawable/image_1" />
-
-
-
-
 
         <TextView
             android:id="@+id/bike_scooter_model_3"
@@ -480,6 +444,7 @@ android:layout_height="match_parent"
             android:layout_toEndOf="@+id/bike_scooter_model_3"
             android:alpha="0.39"
             android:background="@drawable/rectangle_92_shape" />
+
         <TextView
             android:id="@+id/add_part_1"
             android:layout_width="wrap_content"
@@ -497,8 +462,8 @@ android:layout_height="match_parent"
             android:layout_width="210dp"
             android:layout_height="40dp"
             android:layout_below="@+id/boxtxt_1_3"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="23dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
             android:layout_toEndOf="@+id/add_part_1"
             android:alpha="0.39"
             android:background="@drawable/rectangle_92_shape" />
@@ -524,8 +489,8 @@ android:layout_height="match_parent"
             android:layout_marginTop="22dp"
             android:layout_toEndOf="@+id/price_2"
             android:alpha="0.39"
-            android:background="@drawable/rectangle_92_shape"
-            android:inputType="numberDecimal"/>
+            android:background="@drawable/rectangle_92_shape" />
+
         <TextView
             android:id="@+id/quantity_1"
             android:layout_width="wrap_content"
@@ -547,10 +512,7 @@ android:layout_height="match_parent"
             android:layout_marginTop="22dp"
             android:layout_toEndOf="@+id/quantity_1"
             android:alpha="0.39"
-            android:background="@drawable/rectangle_92_shape"
-            android:inputType="number"/>
-
-
+            android:background="@drawable/rectangle_92_shape" />
 
         <Button
             android:id="@+id/btn_8"
@@ -566,30 +528,26 @@ android:layout_height="match_parent"
             android:text="Update"
             android:textColor="@color/black"
             android:background="@drawable/rectangle_92_shape" />
-        <View   android:id="@+id/line_4"
+
+        <View
+            android:id="@+id/line_4"
             android:background="@drawable/line_19_shape"
             android:layout_below="@+id/btn_8"
-
             android:layout_marginStart="0dp"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="1dp" />
     </RelativeLayout>
 
-
-
-
-
-
-
 </RelativeLayout>
-</ScrollView>
+
 <RelativeLayout
     android:id="@+id/frame_23"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="20dp"
     android:layout_marginEnd="20dp"
+    android:layout_marginBottom="20dp"
     android:layout_gravity="bottom|center_horizontal"
     android:layout_alignParentBottom="true"
     android:background="@drawable/rectangle_97_shape">
@@ -619,12 +577,10 @@ android:layout_height="match_parent"
         android:id="@+id/vector_ek20"
         android:layout_width="30dp"
         android:layout_height="36dp"
-        android:layout_marginStart="163dp"
+        android:layout_marginStart="175dp"
         android:layout_marginTop="7dp"
         android:contentDescription="vector_ek20"
         android:src="@drawable/vector_ek20" />
 
 </RelativeLayout>
-
-
 </FrameLayout>

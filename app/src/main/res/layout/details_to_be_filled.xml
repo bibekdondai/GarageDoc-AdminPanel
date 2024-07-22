@@ -1,3 +1,9 @@
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/details_to_be_filled"
@@ -211,3 +217,50 @@
 
 	</RelativeLayout>
 </ScrollView>
+
+	<RelativeLayout
+		android:id="@+id/frame_23"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="20dp"
+		android:layout_marginEnd="20dp"
+		android:layout_marginBottom="20dp"
+		android:layout_gravity="bottom|center_horizontal"
+		android:layout_alignParentBottom="true"
+		android:background="@drawable/rectangle_97_shape">
+
+		<ImageView
+			android:id="@+id/vector_ek1"
+			android:layout_width="29dp"
+			android:layout_height="31dp"
+			android:layout_alignParentStart="true"
+			android:layout_marginStart="30dp"
+			android:layout_marginTop="7dp"
+			android:contentDescription="vector_ek1"
+			android:src="@drawable/vector_ek1" />
+
+		<ImageView
+			android:id="@+id/vector_ek4"
+			android:layout_width="36dp"
+			android:layout_height="31dp"
+			android:layout_alignParentEnd="true"
+			android:layout_marginStart="291dp"
+			android:layout_marginTop="7dp"
+			android:layout_marginEnd="30dp"
+			android:contentDescription="@string/vector_ek4"
+			android:src="@drawable/vector_ek4" />
+
+		<ImageView
+			android:id="@+id/vector_ek20"
+			android:layout_width="30dp"
+			android:layout_height="36dp"
+			android:layout_marginStart="175dp"
+			android:layout_marginTop="7dp"
+			android:contentDescription="vector_ek20"
+			android:src="@drawable/vector_ek20" />
+
+	</RelativeLayout>
+
+</FrameLayout>
+
+

@@ -89,13 +89,33 @@
                 android:alpha="0.39"
                 android:background="@drawable/rectangle_92_shape" />
 
+            <TextView
+                android:id="@+id/Part_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="360dp"
+                android:text="Part Name:"
+                android:textColor="@color/rectangle_1_color"
+                android:textSize="20sp" />
 
+            <Spinner
+                android:id="@+id/boxtxt_1_2"
+                android:layout_width="210dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/boxtxt_1_1"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="14dp"
+                android:layout_toEndOf="@+id/Part_name"
+                android:alpha="0.39"
+                android:background="@drawable/rectangle_92_shape" />
 
             <TextView
                 android:id="@+id/bike_model_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/bike_model"
+                android:layout_below="@+id/Part_name"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="13dp"
                 android:layout_marginTop="27dp"
@@ -103,6 +123,16 @@
                 android:textColor="@color/rectangle_1_color"
                 android:textSize="20sp" />
 
+            <Spinner
+                android:id="@+id/boxtxt_1_3"
+                android:layout_width="210dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/boxtxt_1_2"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="12dp"
+                android:layout_toEndOf="@+id/bike_model_1"
+                android:alpha="0.39"
+                android:background="@drawable/rectangle_92_shape" />
 
 
             <!-- Lower Table -->
@@ -119,7 +149,7 @@
                     <TextView android:text="S.N" android:padding="8dp"/>
                     <TextView android:text="Part Name" android:padding="8dp"/>
                     <TextView android:text="Price" android:padding="8dp"/>
-                    <TextView android:text="Quantity" android:padding="8dp"/>
+                    <TextView android:text="Price per piece" android:padding="8dp"/>
                 </TableRow>
 
                 <!-- Data rows will be added programmatically -->
@@ -134,6 +164,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_alignParentBottom="true"
         android:background="@drawable/rectangle_97_shape">
@@ -163,7 +194,7 @@
             android:id="@+id/vector_ek20"
             android:layout_width="30dp"
             android:layout_height="36dp"
-            android:layout_marginStart="163dp"
+            android:layout_marginStart="175dp"
             android:layout_marginTop="7dp"
             android:contentDescription="vector_ek20"
             android:src="@drawable/vector_ek20" />
