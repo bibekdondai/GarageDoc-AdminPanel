@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".dashboard_activity"
+            android:name=".login_activity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true" >
             <intent-filter>
@@ -19,14 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".more_option_activity" />
-
         <activity android:name=".notification_activity" />
-
         <activity android:name=".details_to_be_filled_activity" />
-
-        <activity android:name=".login_activity" />
+        <activity android:name=".dashboard_activity" />
         <activity android:name=".setting_activity" />
-
         <activity android:name=".inventory_details_activity" />
         <activity android:name=".inventory_add_activity" />
 

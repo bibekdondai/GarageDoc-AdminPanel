@@ -34,9 +34,9 @@ public class dashboard_activity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dashboard);
 
-		rectangle_1 = findViewById(R.id.rectangle_1);
+//		rectangle_1 = findViewById(R.id.rectangle_1);
 		_logout = findViewById(R.id._logout);
-		garage_doc = findViewById(R.id.garage_doc);
+//		garage_doc = findViewById(R.id.garage_doc);
 		vector_ek1 = findViewById(R.id.vector_ek1);
 		vector_ek4 = findViewById(R.id.vector_ek4);
 		vector_ek20 = findViewById(R.id.vector_ek20);
@@ -108,18 +108,24 @@ public class dashboard_activity extends Activity {
 						DataSnapshot servicesSnapshot = bikeSnapshot.child("services");
 
 						for (DataSnapshot serviceSnapshot : servicesSnapshot.getChildren()) {
-							// Handle HashMap conversion
 							String tokenTime = serviceSnapshot.getKey();
-							Map<String, Object> serviceData = (Map<String, Object>) serviceSnapshot.getValue();
+							Object value = serviceSnapshot.getValue();
 
-							// Extract individual data points
-							String bikeNo = (String) serviceData.get("number_plate");
-							String remarks = (String) serviceData.get("remarks");
-							String status = (String) serviceData.get("status");
+							if (value instanceof Map) {
+								Map<String, Object> serviceData = (Map<String, Object>) value;
 
-							addUpperTableRow(sn, userId, tokenTime, bikeNo, remarks);
-							addLowerTableRow(sn, userId, tokenTime, bikeNo, status);
-							sn++;
+								// Extract individual data points
+								String bikeNo = (String) serviceData.get("number_plate");
+								String remarks = (String) serviceData.get("remarks");
+								String status = (String) serviceData.get("status");
+
+								addUpperTableRow(sn, userId, tokenTime, bikeNo, remarks);
+								addLowerTableRow(sn, userId, tokenTime, bikeNo, status);
+								sn++;
+							} else {
+								// Handle unexpected data format
+								Toast.makeText(dashboard_activity.this, "Unexpected data format in serviceSnapshot", Toast.LENGTH_SHORT).show();
+							}
 						}
 					}
 				}
@@ -132,27 +138,26 @@ public class dashboard_activity extends Activity {
 		});
 	}
 
-
-
-
-
-	private void addUpperTableRow(int sn, String tokenTime, String bikeNo, String remarks, String s) {
+	private void addUpperTableRow(int sn, String userId, String tokenTime, String bikeNo, String remarks) {
 		TableRow row = new TableRow(this);
 		row.addView(createTextView(String.valueOf(sn)));
+		row.addView(createTextView(userId));
 		row.addView(createTextView(tokenTime));
 		row.addView(createTextView(bikeNo));
 		row.addView(createTextView(remarks));
 		upperTable.addView(row);
 	}
 
-	private void addLowerTableRow(int sn, String tokenTime, String bikeNo, String status, String s) {
+	private void addLowerTableRow(int sn, String userId, String tokenTime, String bikeNo, String status) {
 		TableRow row = new TableRow(this);
 		row.addView(createTextView(String.valueOf(sn)));
+		row.addView(createTextView(userId));
 		row.addView(createTextView(tokenTime));
 		row.addView(createTextView(bikeNo));
 		row.addView(createTextView(status));
 		lowerTable.addView(row);
 	}
+
 
 	private TextView createTextView(String text) {
 		TextView textView = new TextView(this);
