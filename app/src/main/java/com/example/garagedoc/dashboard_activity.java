@@ -25,7 +25,6 @@ public class dashboard_activity extends Activity {
 
 	private View rectangle_1;
 	private TextView _logout;
-	private TextView garage_doc;
 	private ImageView vector_ek1, vector_ek4, vector_ek20;
 	private TableLayout upperTable, lowerTable;
 
@@ -34,9 +33,7 @@ public class dashboard_activity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dashboard);
 
-//		rectangle_1 = findViewById(R.id.rectangle_1);
 		_logout = findViewById(R.id._logout);
-//		garage_doc = findViewById(R.id.garage_doc);
 		vector_ek1 = findViewById(R.id.vector_ek1);
 		vector_ek4 = findViewById(R.id.vector_ek4);
 		vector_ek20 = findViewById(R.id.vector_ek20);
@@ -55,8 +52,7 @@ public class dashboard_activity extends Activity {
 		});
 
 		vector_ek1.setOnClickListener(v -> {
-			Intent dashboardIntent = new Intent(dashboard_activity.this, dashboard_activity.class);
-			startActivity(dashboardIntent);
+			// Optional: Handle click on vector_ek1 if needed
 		});
 
 		_logout.setOnClickListener(v -> {
@@ -72,6 +68,12 @@ public class dashboard_activity extends Activity {
 		}
 	}
 
+	@Override
+	public void onBackPressed() {
+		// Handle back press to avoid logging out or unintended navigation
+		super.onBackPressed(); // Finish the current activity and go back to the previous activity
+	}
+
 	private void addHeaderRow(TableLayout table, String col1, String col2, String col3, String col4, String col5) {
 		TableRow headerRow = new TableRow(this);
 		headerRow.addView(createTextView(col1));
@@ -81,7 +83,6 @@ public class dashboard_activity extends Activity {
 		headerRow.addView(createTextView(col5));
 		table.addView(headerRow);
 	}
-
 
 	private void fetchAndDisplayData() {
 		FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -115,10 +116,11 @@ public class dashboard_activity extends Activity {
 								Map<String, Object> serviceData = (Map<String, Object>) value;
 
 								// Extract individual data points
-								String bikeNo = (String) serviceData.get("number_plate");
-								String remarks = (String) serviceData.get("remarks");
+								String bikeNo = plateNumber; // Set bikeNo to plateNumber from database
+								String remarks = "N/A"; // Set remarks to "N/A"
 								String status = (String) serviceData.get("status");
 
+								// Add rows to tables
 								addUpperTableRow(sn, userId, tokenTime, bikeNo, remarks);
 								addLowerTableRow(sn, userId, tokenTime, bikeNo, status);
 								sn++;
@@ -145,6 +147,7 @@ public class dashboard_activity extends Activity {
 		row.addView(createTextView(tokenTime));
 		row.addView(createTextView(bikeNo));
 		row.addView(createTextView(remarks));
+		row.setOnClickListener(v -> openDetailsPage(userId, tokenTime, bikeNo, remarks));
 		upperTable.addView(row);
 	}
 
@@ -155,9 +158,9 @@ public class dashboard_activity extends Activity {
 		row.addView(createTextView(tokenTime));
 		row.addView(createTextView(bikeNo));
 		row.addView(createTextView(status));
+		row.setOnClickListener(v -> openDetailsPage(userId, tokenTime, bikeNo, "N/A"));
 		lowerTable.addView(row);
 	}
-
 
 	private TextView createTextView(String text) {
 		TextView textView = new TextView(this);
@@ -166,10 +169,51 @@ public class dashboard_activity extends Activity {
 		return textView;
 	}
 
-	public void openDetailsPage(View view) {
-		Intent intent = new Intent(this, details_to_be_filled_activity.class);
-		startActivity(intent);
+	private void openDetailsPage(String userId, String tokenTime, String bikeNo, String remarks) {
+		getBikeModel(bikeNo, new BikeModelCallback() {
+			@Override
+			public void onBikeModelRetrieved(String bikeModel) {
+				Intent intent = new Intent(dashboard_activity.this, details_to_be_filled_activity.class);
+				intent.putExtra("TOKEN_TIME", tokenTime);
+				intent.putExtra("BIKE_NUMBER", bikeNo);
+				intent.putExtra("BIKE_MODEL", bikeModel);
+				intent.putExtra("REMARKS", remarks);
+				intent.putExtra("USER_EMAIL_UID", userId); // Pass UID
+				startActivity(intent);
+			}
+		});
 	}
+
+
+	public void getBikeModel(String bikeNumber, BikeModelCallback callback) {
+		// Reference to the specific path
+		DatabaseReference bikeRef = FirebaseDatabase.getInstance().getReference("users").child("kushal@gmail,com")
+				.child("bikes").child(bikeNumber);
+
+		bikeRef.child("model").addListenerForSingleValueEvent(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				String bikeModel = dataSnapshot.getValue(String.class);
+				if (bikeModel != null) {
+					callback.onBikeModelRetrieved(bikeModel);
+				} else {
+					callback.onBikeModelRetrieved("Unknown Model");
+				}
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+				callback.onBikeModelRetrieved("Error fetching model");
+			}
+		});
+	}
+
+	public interface BikeModelCallback {
+		void onBikeModelRetrieved(String bikeModel);
+	}
+
+
+
 
 	private boolean isNetworkAvailable() {
 		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);

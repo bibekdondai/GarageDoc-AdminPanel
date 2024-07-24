@@ -1,99 +1,157 @@
 package com.example.garagedoc;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class details_to_be_filled_activity extends Activity {
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
-	private View _bg__details_to_be_filled_ek2;
-	private TextView ca_ek2;
-	private TextView vehicle_details_;
-	private TextView vehicle_number_;
-	private TextView text;
-	private TextView text_ek1;
-	private TextView text_ek2;
-	private TextView text_ek3;
-	private TextView text_ek4;
-	private TextView text_ek6;
-	private TextView text_ek7;
-	private TextView text_ek9;
-	private TextView text_ek10;
-	private TextView text_ek12;
-	private TextView hhhh;
-	private TextView text_ek13;
-	private TextView text_ek14;
-	private TextView text_ek15;
-	private TextView text_ek16;
-	private TextView text_ek17;
-	private TextView text_ek18;
-	private TextView text_ek20;
-	private TextView text_ek21;
-	private TextView text_ek23;
-	private TextView text_ek24;
-	private TextView text_ek26;
-	private TextView hhhh_ek1;
-	private TextView text_ek27;
-	private View rectangle_80;
-	private View line_20;
-	private View rectangle_80_ek1;
-	private View rectangle_76_ek1;
-	private View rectangle_81;
-	private View rectangle_82;
-	private TextView cancelled_ek1;
-	private TextView pending_ek1; // Declaration corrected
-	private TextView process_ek1;
-	private TextView delivered_ek1;
-	private TextView changes_to_be_made_from_showroom_side;
-	private View rectangle_60;
-	private TextView pay;
-	private TextView home_ek14;
-	private TextView notification_ek23;
-	private TextView call_ek10;
-	private TextView setting_ek10;
-	private ImageView vector_ek1;
-	private ImageView vector_ek20;
-	private ImageView vector_ek53;
-	private ImageView vector_ek4;
-	private ImageView vector_ek55;
-	private ImageView vector_ek56;
-	private View rectangle_92;
-	private ImageView image_1;
-	private TextView add_part_name___services;
+public class details_to_be_filled_activity extends AppCompatActivity {
+
+	private TableLayout lowerTable;
+	private TextView txtModel, txtVehicleNo;
+	private DatabaseReference databaseRef;
+	private String tokenTime, bikeNumber, userEmailUid;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.details_to_be_filled);
 
-		// Initialize your views
-		_bg__details_to_be_filled_ek2 = findViewById(R.id._bg__details_to_be_filled_ek2);
+		// Initialize Firebase database reference
+		databaseRef = FirebaseDatabase.getInstance().getReference();
+
+		// Get data from Intent
+		tokenTime = getIntent().getStringExtra("TOKEN_TIME");
+		bikeNumber = getIntent().getStringExtra("BIKE_NUMBER");
+		userEmailUid = getIntent().getStringExtra("USER_EMAIL_UID"); // Get UID
 
 
-		// Example of handling a button click (Cancel)
-		Button btnCancel = findViewById(R.id.btn_cancel);
-		btnCancel.setOnClickListener(new View.OnClickListener() {
+		// Initialize views
+		lowerTable = findViewById(R.id.lower_table);
+		txtModel = findViewById(R.id.txt_model);
+		txtVehicleNo = findViewById(R.id.txt_vehicleno);
+		txtModel = findViewById(R.id.txt_model);
+
+		// Set the model and vehicle number TextViews
+		txtVehicleNo.setText(bikeNumber);
+
+
+		// Fetch and display data
+		fetchData();
+	}
+
+
+	private void fetchData() {
+		// Reference to the specific path using the userEmailUid
+
+		DatabaseReference bikeRef = databaseRef.child("users").child(userEmailUid)
+				.child("bikes").child(bikeNumber).child("bikeModel");
+
+		bikeRef.addListenerForSingleValueEvent(new ValueEventListener() {
 			@Override
-			public void onClick(View v) {
-				// Perform action when Cancel button is clicked
-				Toast.makeText(details_to_be_filled_activity.this, "Cancel button clicked", Toast.LENGTH_SHORT).show();
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				String modelName = dataSnapshot.getValue(String.class);
+				txtModel.setText(modelName != null ? modelName : "Model not found");
+			}
+
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+				Toast.makeText(details_to_be_filled_activity.this, "Failed to load model name.", Toast.LENGTH_SHORT).show();
+			}
+
+		});
+		DatabaseReference servicesRef = databaseRef.child("users").child(userEmailUid)
+				.child("bikes").child(bikeNumber).child("services").child(tokenTime);
+		// Reference to the specific path for services
+
+
+		servicesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				// Clear existing rows in the TableLayout
+				lowerTable.removeAllViews();
+
+				// Add header row
+				TableRow headerRow = new TableRow(details_to_be_filled_activity.this);
+				addTextView(headerRow, "Part Name");
+				addTextView(headerRow, "Price");
+				addTextView(headerRow, "Remarks");
+				addTextView(headerRow, "Action");
+				lowerTable.addView(headerRow);
+
+				// Variables to calculate total amount
+				int totalAmount = 0;
+
+				// Iterate over child nodes (parts)
+				for (DataSnapshot partSnapshot : dataSnapshot.getChildren()) {
+					String key = partSnapshot.getKey();
+					if (!key.equals("token_time") && !key.equals("token_date")) {
+						// Create a new row for each part
+						TableRow row = new TableRow(details_to_be_filled_activity.this);
+						String partName = partSnapshot.child("part").getValue(String.class);
+						String partPriceStr = partSnapshot.child("price").getValue(String.class);
+
+						int partPrice = 0;
+						if (partPriceStr != null) {
+							try {
+								partPrice = Integer.parseInt(partPriceStr);
+							} catch (NumberFormatException e) {
+								// Handle parse error
+							}
+						}
+
+						totalAmount += partPrice;
+
+						addTextView(row, partName);
+						addTextView(row, partPriceStr);
+						addTextView(row, "N/A"); // Remarks column
+						addActionButtons(row);
+
+						lowerTable.addView(row);
+					}
+				}
+
+				// Add total amount row
+				TableRow totalRow = new TableRow(details_to_be_filled_activity.this);
+				addTextView(totalRow, "Total Amount");
+				// Add empty cells for price and remarks
+				addTextView(totalRow, String.valueOf(totalAmount));
+				addTextView(totalRow, "");
+				lowerTable.addView(totalRow);
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+				Toast.makeText(details_to_be_filled_activity.this, "Failed to load data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 			}
 		});
+	}
 
-		// Example of handling another button click (Accept)
-		Button btnAccept = findViewById(R.id.btn_accept);
-		btnAccept.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// Perform action when Accept button is clicked
-				Toast.makeText(details_to_be_filled_activity.this, "Accept button clicked", Toast.LENGTH_SHORT).show();
-			}
+	private void addTextView(TableRow row, String text) {
+		TextView textView = new TextView(this);
+		textView.setText(text);
+		textView.setPadding(8, 8, 8, 8);
+		row.addView(textView);
+	}
+
+	private void addActionButtons(TableRow row) {
+		// Example: Adding a button to each row
+		Button actionButton = new Button(this);
+		actionButton.setText("Action");
+		actionButton.setOnClickListener(v -> {
+			// Handle button click
+			Toast.makeText(this, "Action button clicked for part", Toast.LENGTH_SHORT).show();
 		});
-
-		// Other initialization or custom logic can go here
+		row.addView(actionButton);
 	}
 }

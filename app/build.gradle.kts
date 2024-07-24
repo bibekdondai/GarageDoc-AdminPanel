@@ -56,4 +56,6 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+//    implementation ("com.google.firebase:firebase-appcheck-playintegrity:16.0.0-beta01")
+//    implementation ("com.google.firebase:firebase-appcheck-safetynet:16.0.0-beta01")
 }

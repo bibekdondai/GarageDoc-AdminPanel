@@ -53,6 +53,7 @@
 				android:layout_alignParentTop="true"
 				android:layout_marginTop="200dp"
 				android:stretchColumns="1,2,3"
+				android:clickable="true"
 				android:background="@drawable/_bg__details_to_be_filled_ek2_shape">
                  <TableRow>
 <!--				<TableRow>-->
